@@ -1,17 +1,13 @@
 const Rating = () => {
 	return (
 		<>
-			<div style={styles.container}>Rate Your Experience</div>
+			<div className="container-main">
+				<div className="rating-container">
+					<h2>Rate Your Experience</h2>
+				</div>
+			</div>
 		</>
 	);
-};
-
-const styles = {
-	container: {
-		fontFamily: 'Arial',
-		fontSize: '15px',
-		color: 'red',
-	},
 };
 
 export default Rating;
