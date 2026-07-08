@@ -16,7 +16,7 @@ const Rating = () => {
 								key={starValue}>
 								<FontAwesomeIcon
 									icon={faSolidStar}
-									className="rating-color"
+									className="rating-color-none"
 								/>
 							</div>
 						))}

@@ -50,4 +50,7 @@
    filter: drop-shadow(0px 4px 12px rgba(63, 61, 61, 0.1));
  }
 
- 
+.rating-color-none{
+   color: rgb(195, 195, 192);
+   filter: drop-shadow(0px 4px 12px rgba(63, 61, 61, 0.1));
+}
