@@ -5,6 +5,7 @@ const Rating = () => {
 	const stars = Array.from({ length: 5 }, (_, i) => i + 1);
 
 	const clicked = (index) => console.log('clicked', index);
+	const hovered = (direction) => console.log('hovered', direction);
 
 	return (
 		<>
@@ -15,6 +16,8 @@ const Rating = () => {
 						{stars.map((starValue, index) => (
 							<div
 								className="star"
+								onMouseEnter={() => hovered('enter')}
+								onMouseLeave={() => hovered('leave')}
 								onClick={() => clicked(index)}
 								key={starValue}>
 								<FontAwesomeIcon
