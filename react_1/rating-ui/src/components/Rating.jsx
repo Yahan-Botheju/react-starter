@@ -1,11 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faSolidStar } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 const Rating = () => {
-	const stars = Array.from({ length: 5 }, (_, i) => i + 1);
+	const [rating, setRating] = useState(0);
+	const [hover, setHover] = useState(0);
 
-	const clicked = (index) => console.log('clicked', index);
-	const hovered = (direction) => console.log('hovered', direction);
+	const stars = Array.from({ length: 5 }, (_, i) => i + 1);
 
 	return (
 		<>
@@ -13,12 +14,12 @@ const Rating = () => {
 				<div className="rating-container">
 					<h2>Rate Your Experience</h2>
 					<div className="stars-container">
-						{stars.map((starValue, index) => (
+						{stars.map((starValue) => (
 							<div
+								onClick={() => setRating(starValue)}
+								onMouseEnter={() => setHover(starValue)}
+								onMouseLeave={() => setHover(0)}
 								className="star"
-								onMouseEnter={() => hovered('enter')}
-								onMouseLeave={() => hovered('leave')}
-								onClick={() => clicked(index)}
 								key={starValue}>
 								<FontAwesomeIcon
 									icon={faSolidStar}
