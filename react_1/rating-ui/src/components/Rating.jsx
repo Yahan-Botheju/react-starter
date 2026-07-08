@@ -4,15 +4,18 @@ import { faStar as faSolidStar } from '@fortawesome/free-solid-svg-icons';
 const Rating = () => {
 	const stars = Array.from({ length: 5 }, (_, i) => i + 1);
 
+	const clicked = (index) => console.log('clicked', index);
+
 	return (
 		<>
 			<div className="container-main">
 				<div className="rating-container">
 					<h2>Rate Your Experience</h2>
 					<div className="stars-container">
-						{stars.map((starValue) => (
+						{stars.map((starValue, index) => (
 							<div
 								className="star"
+								onClick={() => clicked(index)}
 								key={starValue}>
 								<FontAwesomeIcon
 									icon={faSolidStar}
