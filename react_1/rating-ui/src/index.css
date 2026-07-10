@@ -45,12 +45,20 @@
    font-size: 25px;
  }
 
- .rating-color{
+.active{
    color: #ffcc00;
-   filter: drop-shadow(0px 4px 12px rgba(63, 61, 61, 0.1));
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.25));
+   transition: color 0.2s ease-in-out, filter 0.2s ease-in-out, transform 0.2s ease-in-out;
  }
-
-.rating-color-none{
+.diactivate{
    color: rgb(195, 195, 192);
-   filter: drop-shadow(0px 4px 12px rgba(63, 61, 61, 0.1));
+   filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.25));
+   transition: color 0.2s ease-in-out, filter 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.star:hover .active,
+.star:hover .diactivate {
+  transform: scale(1.2);                   /* තරුව 1.2 ගුණයක් ලොකු වෙනවා */
+  filter: drop-shadow(0px 0px 8px #ffcc00); /* තරුව වටේට ලස්සනට කහ පාටින් Glow වෙනවා */
+  cursor: pointer;                         /* Mouse cursor එක අතක හැඩය ගන්නවා */
 }
