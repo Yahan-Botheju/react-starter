@@ -6,9 +6,15 @@ import Star from './Star';
 const Rating = ({ color = '#ffcc00' }) => {
 	const [rating, setRating] = useState(0);
 	const [hover, setHover] = useState(0);
+	const [submit, setSubmitted] = useState(0);
 
 	const stars = Array.from({ length: 5 }, (_, i) => i + 1);
 	const feedbackMessages = ['Terrible', 'Poor', 'Fair', 'Good', 'Excellent'];
+	const handleSubmit = () => {
+		if (rating > 0) {
+			setSubmitted(true);
+		}
+	};
 
 	return (
 		<>
@@ -43,6 +49,14 @@ const Rating = ({ color = '#ffcc00' }) => {
 					</div>
 					<div className="feedback">
 						{rating > 0 && <p>{feedbackMessages[rating - 1]}</p>}
+					</div>
+					<div className="submit-container">
+						<button
+							className="submit-btn"
+							onClick={handleSubmit}
+							disabled={rating === 0}>
+							submit
+						</button>
 					</div>
 				</div>
 			</div>
