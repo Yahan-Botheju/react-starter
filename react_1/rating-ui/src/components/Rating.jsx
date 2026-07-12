@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faSolidStar } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import Star from './Star';
+import Model from './Model';
 
 const Rating = ({ color = '#ffcc00' }) => {
 	const [rating, setRating] = useState(0);
@@ -15,6 +16,8 @@ const Rating = ({ color = '#ffcc00' }) => {
 			setSubmitted(true);
 		}
 	};
+
+	//close model and reset UI
 	const closeModel = () => {
 		setSubmitted(false);
 		setRating(0);
@@ -24,10 +27,13 @@ const Rating = ({ color = '#ffcc00' }) => {
 	return (
 		<>
 			<div className="container-main">
+
 				<div className="rating-container">
+					
 					<h2>Rate Your Experience</h2>
 					<div className="stars-container">
 						{stars.map((starValue) => (
+
 							<Star
 								key={starValue}
 								starValue={starValue}
@@ -39,22 +45,13 @@ const Rating = ({ color = '#ffcc00' }) => {
 								hoverLeave={() => setHover(0)}
 							/>
 
-							// <div
-							// 	onClick={() => setRating(starValue)}
-							// 	onMouseEnter={() => setHover(starValue)}
-							// 	onMouseLeave={() => setHover(0)}
-							// 	className="star"
-							// 	key={starValue}>
-							// 	<FontAwesomeIcon
-							// 		icon={faSolidStar}
-							// 		className={`starValue ${starValue <= (hover || rating) ? 'active' : ''}`}
-							// 	/>
-							// </div>
 						))}
 					</div>
+
 					<div className="feedback">
 						{rating > 0 && <p>{feedbackMessages[rating - 1]}</p>}
 					</div>
+
 					<div className="submit-container">
 						<button
 							className="submit-btn"
@@ -63,32 +60,18 @@ const Rating = ({ color = '#ffcc00' }) => {
 							submit
 						</button>
 					</div>
+
 				</div>
 
-				{/* Model */}
+				<Model
+					isOpen={submit}
+					onClose={closeModel}
+					rating={rating}
+				/>
 
-				{submit && (
-					<div className="model-overlay">
-						<div className="model-container">
-							<div className="words-container">
-								<h3>Thanks You</h3>
-								<p>
-									You Rated us {rating} star{rating > 1 ? 's' : ''}
-								</p>
-							</div>
-							<div className="close-container">
-								<button
-									className="close-btn"
-									onClick={closeModel}>
-									close
-								</button>
-							</div>
-						</div>
-					</div>
-				)}
 			</div>
 		</>
 	);
-};
+};;
 
 export default Rating;
