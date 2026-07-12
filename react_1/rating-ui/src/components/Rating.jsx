@@ -6,7 +6,7 @@ import Star from './Star';
 const Rating = ({ color = '#ffcc00' }) => {
 	const [rating, setRating] = useState(0);
 	const [hover, setHover] = useState(0);
-	const [submit, setSubmitted] = useState(0);
+	const [submit, setSubmitted] = useState(false);
 
 	const stars = Array.from({ length: 5 }, (_, i) => i + 1);
 	const feedbackMessages = ['Terrible', 'Poor', 'Fair', 'Good', 'Excellent'];
@@ -14,6 +14,11 @@ const Rating = ({ color = '#ffcc00' }) => {
 		if (rating > 0) {
 			setSubmitted(true);
 		}
+	};
+	const closeModel = () => {
+		setSubmitted(false);
+		setRating(0);
+		setHover(0);
 	};
 
 	return (
@@ -59,6 +64,28 @@ const Rating = ({ color = '#ffcc00' }) => {
 						</button>
 					</div>
 				</div>
+
+				{/* Model */}
+
+				{submit && (
+					<div className="model-overlay">
+						<div className="model-container">
+							<div className="words-container">
+								<h3>Thanks You</h3>
+								<p>
+									You Rated us {rating} star{rating > 1 ? 's' : ''}
+								</p>
+							</div>
+							<div className="close-container">
+								<button
+									className="close-btn"
+									onClick={closeModel}>
+									close
+								</button>
+							</div>
+						</div>
+					</div>
+				)}
 			</div>
 		</>
 	);
