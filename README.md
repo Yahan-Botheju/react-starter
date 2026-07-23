@@ -26,45 +26,9 @@ An interactive Star Rating component built with <strong>React</strong> that allo
 - Font Awesome
 - Vite
 
----
-
-## 📂 Project Structure
-
-```text
-src
-│── components
-│   ├── Model.jsx
-│   ├── Rating.jsx
-│   └── Star.jsx
-│
-├── App.jsx
-├── main.jsx
-└── index.css
-```
 
 ---
 
-## 🚀 Getting Started
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/your-username/react-star-rating.git
-```
-
-### Install Dependencies
-
-```bash
-npm install
-```
-
-### Run the Application
-
-```bash
-npm run dev
-```
-
----
 
 ## 📸 How It Works
 
