@@ -6,6 +6,10 @@ An interactive Star Rating component built with <strong>React</strong> that allo
 
 ---
 
+ check this out :
+
+---
+
 ## ✨ Features
 
 - ⭐ Interactive 5-star rating
